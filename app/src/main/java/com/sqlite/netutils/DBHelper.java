@@ -87,6 +87,29 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return "0";
     }
+	
+	/* todo add salse latitude and longitude*/
+    public void AddSalesTracking(String date, String latitude, String longitude, String type) {
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put("latitude", "" + latitude);
+            values.put("longitude", "" + longitude);
+            values.put("date", "" + date);
+            values.put("type", "" + type);
+            long id = db.insert(SALESEXECUTIVE_TRACKING, null, values);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	
+	public void updateVideoPlay(String id, String play_count) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("play_video", "" + play_count);
+        db.update(Video, values, "id=" + id, new String[]{});
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
