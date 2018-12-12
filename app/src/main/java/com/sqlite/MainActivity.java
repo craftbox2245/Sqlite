@@ -9,6 +9,7 @@ import com.sqlite.netutils.DBHelper;
 public class MainActivity extends AppCompatActivity {
 
     DBHelper db;
+	//http://tomeko.net/online_tools/hex_to_base64.php?lang=en
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
